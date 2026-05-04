@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة الوجبات</title>
+    <link rel="icon" href="svu.ico" type="image/ico">
+     <link rel="stylesheet" href="Style.css" >
+</head>
+
+<body>
+
+<header>
+   <h1>مطعم الوجبات الشهية</h1>
+    <nav>
+        <ul>
+            <li><a href="main.html" class="active">الرئيسية</a></li>
+            <li><a href="meals.html">قائمة الوجبات</a></li>
+            <li><a href="about.html">حول</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<h2>
+    <input type="checkbox" onchange="toggleTable()">
+    عرض قائمة الوجبات
+</h2>
+
+<table id="mealsTable">
+
+<tr>
+    <th>رمز</th>
+    <th>الوجبة</th>
+    <th>السعر</th>
+    <th>تفاصيل</th>
+    <th>اختيار</th>
+    <th>صورة</th>
+</tr>
+
+<tr>
+    <td>1</td>
+    <td>برجر عملاق</td>
+    <td>10</td>
+    <td><input type="checkbox" onclick="toggleDetails(this)"></td>
+    <td><input type="checkbox" class="mealCheck" value="برجر-10"></td>
+    <td><img src="burger.jpg"></td>
+</tr>
+
+<tr class="detailsRow" style="display:none;">
+    <td colspan="6" style="text-align:right;background:#fff3e0;padding:10px;">
+        <strong>المكونات:</strong>
+        <ul>
+            <li>لحم بقري</li>
+            <li>خبز طازج</li>
+            <li>جبنة</li>
+            <li>خس وطماطم</li>
+        </ul>
+        <strong>الطريقة:</strong> مشوي على الفحم
+    </td>
+</tr>
+
+<!-- 🍕 بيتزا -->
+<tr>
+    <td>2</td>
+    <td>بيتزا</td>
+    <td>12</td>
+    <td><input type="checkbox" onclick="toggleDetails(this)"></td>
+    <td><input type="checkbox" class="mealCheck" value="بيتزا-12"></td>
+    <td><img src="pizza.jpg"></td>
+</tr>
+
+<tr class="detailsRow" style="display:none;">
+    <td colspan="6" style="text-align:right;background:#fff3e0;padding:10px;">
+        <strong>المكونات:</strong>
+        <ul>
+            <li>عجينة بيتزا</li>
+            <li>جبنة موزاريلا</li>
+            <li>صلصة طماطم</li>
+            <li>خضار مشكل</li>
+        </ul>
+        <strong>الطريقة:</strong> مخبوزة في الفرن
+    </td>
+</tr>
+
+<!-- 🐟 سمك -->
+<tr>
+    <td>3</td>
+    <td>سمك بوري</td>
+    <td>15</td>
+    <td><input type="checkbox" onclick="toggleDetails(this)"></td>
+    <td><input type="checkbox" class="mealCheck" value="سمك-15"></td>
+    <td><img src="fish.jpg"></td>
+</tr>
+
+<tr class="detailsRow" style="display:none;">
+    <td colspan="6" style="text-align:right;background:#fff3e0;padding:10px;">
+        <strong>المطبخ:</strong> المصري <br>
+        <strong>التصنيف:</strong> مأكولات بحرية <br><br>
+
+        <strong>المكونات:</strong>
+        <ul>
+            <li>4 سمكات بوري</li>
+            <li>ملح وفلفل</li>
+            <li>أوريجانو</li>
+        </ul>
+
+        <strong>الصلصة:</strong>
+        <ul>
+            <li>زيت زيتون</li>
+            <li>ثوم</li>
+            <li>طماطم</li>
+            <li>ليمون</li>
+        </ul>
+    </td>
+</tr>
+
+<!-- 🌯 شاورما -->
+<tr>
+    <td>4</td>
+    <td>شاورما</td>
+    <td>10</td>
+    <td><input type="checkbox" onclick="toggleDetails(this)"></td>
+    <td><input type="checkbox" class="mealCheck" value="شاورما-10"></td>
+    <td><img src="shawrma.jpg"></td>
+</tr>
+
+<tr class="detailsRow" style="display:none;">
+    <td colspan="6" style="text-align:right;background:#fff3e0;padding:10px;">
+        <strong>المكونات:</strong>
+        <ul>
+            <li>دجاج متبل</li>
+            <li>خبز عربي</li>
+            <li>ثوم</li>
+            <li>مخللات</li>
+        </ul>
+    </td>
+</tr>
+
+<!-- 🍚 كبسة -->
+<tr>
+    <td>5</td>
+    <td>كبسة سعودية</td>
+    <td>15</td>
+    <td><input type="checkbox" onclick="toggleDetails(this)"></td>
+    <td><input type="checkbox" class="mealCheck" value="كبسة-15"></td>
+    <td><img src="kapsa.jpg"></td>
+</tr>
+
+<tr class="detailsRow" style="display:none;">
+    <td colspan="6" style="text-align:right;background:#fff3e0;padding:10px;">
+        <strong>المكونات:</strong>
+        <ul>
+            <li>أرز بسمتي</li>
+            <li>لحم أو دجاج</li>
+            <li>بهارات كبسة</li>
+        </ul>
+    </td>
+</tr>
+
+</table>
+<br>
+
+<button onclick="showForm()">المتابعة</button>
+
+<form id="orderForm" style="display:none; margin-top:20px;">
+
+    <h3>بيانات الطلب</h3>
+
+    <input type="text" id="name" placeholder="الاسم الكامل">
+    <br><br>
+
+    <input type="text" id="nid" placeholder="الرقم الوطني">
+    <br><br>
+
+    <input type="text" id="phone" placeholder="رقم الموبايل">
+    <br><br>
+
+    <input type="email" id="email" placeholder="الإيميل">
+    <br><br>
+
+    <button type="button" onclick="submitOrder()">إرسال</button>
+
+</form>
+
+</main>
+
+<script src="myFunctions.js"></script>
+
+</body>
+</html>
